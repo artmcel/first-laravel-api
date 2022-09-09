@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Pruebas;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/test', function(){
-
-    return response()->json([
-        'success' => TRUE
-    ]);
-});
+Route::get('/planteles', [Pruebas::class, 'getPlanteles']);
+Route::get('/all-registros', [Pruebas::class, 'getRegistros']);
+Route::post('/registro-usuario', [Pruebas::class, 'registraUsuario']);
